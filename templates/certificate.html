@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Certificate</h1>
+    <div class="certificate">
+        <img src="{{ url_for('static', filename='images/dslogo.png') }}" alt="Logo" class="logo">
+        <h2>{{ certificate.title }}</h2>
+        <p><strong>Recipient:</strong> {{ certificate.recipient_name }}</p>
+        <p><strong>Email:</strong> {{ certificate.recipient_email }}</p>
+        <p><strong>Date of Birth:</strong> {{ certificate.recipient_date_of_birth }}</p>
+        <p><strong>Address:</strong> {{ certificate.recipient_address }}</p>
+        <p><strong>Description:</strong> {{ certificate.description }}</p>
+        <img src="data:image/png;base64,{{ certificate.qr_code }}" alt="QR Code" class="qr-code">
+        <p><strong>Issued Date:</strong> {{ certificate.issued_date.strftime('%Y-%m-%d') }}</p>
+        <p><strong>Certificate Hash:</strong> {{ certificate.blockchain_hash }}</p>
+    </div>
+{% endblock %}

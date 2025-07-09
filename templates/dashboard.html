@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Dashboard</h1>
+    <a href="{{ url_for('issue_certificate') }}" class="btn btn-success">Issue Certificate</a>
+    <h2>Your Certificates</h2>
+    <ul class="list-group">
+        {% for certificate in certificates %}
+            <li class="list-group-item"><a href="{{ url_for('view_certificate_by_hash', certificate_hash=certificate.blockchain_hash) }}">{{ certificate.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

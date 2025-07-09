@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Verification Result</h1>
+    {% if valid %}
+        <p>Certificate is valid.</p>
+        <p><strong>Title:</strong> {{ transaction['sender'] }}</p>
+        <p><strong>Recipient:</strong> {{ transaction['recipient'] }}</p>
+        <p><strong>Certificate Hash:</strong> {{ transaction['certificate_hash'] }}</p>
+    {% else %}
+        <p>Certificate is invalid or not found.</p>
+    {% endif %}
+{% endblock %}
